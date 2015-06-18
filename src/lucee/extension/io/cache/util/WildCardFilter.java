@@ -1,4 +1,4 @@
-package railo.extension.io.cache.util;
+package lucee.extension.io.cache.util;
 
 import org.apache.oro.text.regex.MalformedPatternException;
 import org.apache.oro.text.regex.Pattern;
@@ -6,15 +6,15 @@ import org.apache.oro.text.regex.PatternMatcher;
 import org.apache.oro.text.regex.Perl5Compiler;
 import org.apache.oro.text.regex.Perl5Matcher;
 
-import railo.commons.io.cache.CacheKeyFilter;
+import lucee.commons.io.cache.CacheKeyFilter;
 
 /**
  * Wildcard Filter
  */
 public class WildCardFilter implements CacheKeyFilter {
-    
+
     private static final String specials="{}[]().+\\^$";
-    
+
 	private final Pattern pattern;
     private final PatternMatcher matcher=new Perl5Matcher();
 	private final String wildcard;
@@ -31,7 +31,7 @@ public class WildCardFilter implements CacheKeyFilter {
         this.ignoreCase=ignoreCase;
         StringBuffer sb = new StringBuffer(wildcard.length());
         int len=wildcard.length();
-        
+
         for(int i=0;i<len;i++) {
             char c = wildcard.charAt(i);
             if(c == '*')sb.append(".*");
@@ -43,7 +43,7 @@ public class WildCardFilter implements CacheKeyFilter {
     }
 
 	/**
-	 * @see railo.commons.io.cache.CacheKeyFilter#accept(java.lang.String)
+	 * @see lucee.commons.io.cache.CacheKeyFilter#accept(java.lang.String)
 	 */
 	public boolean accept(String key) {
 		return matcher.matches(ignoreCase?key.toLowerCase():key, pattern);
@@ -58,7 +58,7 @@ public class WildCardFilter implements CacheKeyFilter {
 	}
 
 	/**
-	 * @see railo.commons.io.cache.CacheFilter#toPattern()
+	 * @see lucee.commons.io.cache.CacheFilter#toPattern()
 	 */
 	public String toPattern() {
 		return wildcard;

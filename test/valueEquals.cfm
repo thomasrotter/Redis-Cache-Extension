@@ -2,7 +2,7 @@
 	<cfparam name="attributes.label" default="">
 	<cfparam name="attributes.cs" default="#false#" type="boolean">
 </cfsilent><cfif isDefined("attributes.right")><cfif (not attributes.cs and attributes.left NEQ attributes.right) or (attributes.cs and Compare(attributes.left,attributes.right) NEQ 0)>
-    	<cfif server.ColdFusion.ProductName EQ "railo">
+    	<cfif server.ColdFusion.ProductName EQ "lucee">
         	<cfset context=GetCurrentContext()>
 			<cfset test=context[2]>
         <cfelse>
@@ -12,11 +12,11 @@
 		<cfset test.value.right=attributes.right>
 		<cfset test.type.left=attributes.left.getClass().getName()>
 		<cfset test.type.right=attributes.right.getClass().getName()>
-        
-        
+
+
 		<cfdump var="#test#" label="#attributes.label#">
 	</cfif><cfelse><cfif not FindNoCase(attributes.startWith ,attributes.left)>
-    	<cfif server.ColdFusion.ProductName EQ "railo">
+    	<cfif server.ColdFusion.ProductName EQ "lucee">
 			<cfset context=GetCurrentContext()>
 			<cfset test=context[2]>
         <cfelse>

@@ -7,7 +7,7 @@
 <cfset cacheGetKey=cacheGet('def')>
 <cf_valueEquals left="#structKeyExists(variables,'cacheGetKey')#" right="#false#">
 
-<cfif server.ColdFusion.ProductName EQ "railo">
+<cfif server.ColdFusion.ProductName EQ "lucee">
     <cftry>
         <cfset cacheGet('def',true)>
         <cf_mustThrow message="there is no entry in cache with key [DEF]">

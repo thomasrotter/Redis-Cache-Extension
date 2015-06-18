@@ -1,4 +1,4 @@
-<cfif server.ColdFusion.ProductName EQ "railo">
+<cfif server.ColdFusion.ProductName EQ "lucee">
 <cflock scope="server" timeout="1">
 
     <cfset cacheName="redis_objects">
@@ -7,7 +7,7 @@
   	<cf_valueEquals left="#cacheCount()#" right="1">
     <cfset cacheClear()>
     <cf_valueEquals left="#cacheCount()#" right="0">
-    
+
     <cfset cachePut('abc','123')>
     <cf_valueEquals left="#cacheCount()#" right="1">
     <cfset cacheClear("*")>

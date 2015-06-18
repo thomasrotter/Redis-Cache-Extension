@@ -1,12 +1,12 @@
-package railo.extension.io.cache.redis;
+package lucee.extension.io.cache.redis;
 
 import java.util.Hashtable;
 
-import railo.loader.engine.CFMLEngine;
-import railo.loader.engine.CFMLEngineFactory;
-import railo.runtime.type.Struct;
-import railo.runtime.util.Cast;
-import railo.runtime.exp.PageException;
+import lucee.loader.engine.CFMLEngine;
+import lucee.loader.engine.CFMLEngineFactory;
+import lucee.runtime.type.Struct;
+import lucee.runtime.util.Cast;
+import lucee.runtime.exp.PageException;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
@@ -37,7 +37,7 @@ public class RedisConnection {
 
             JedisPoolConfig config = new JedisPoolConfig();
             config.setTestOnBorrow(true);
-            
+
             instance.put(cacheName, new JedisPool(config, host, port));
 
         } catch (PageException e) {
@@ -50,7 +50,7 @@ public class RedisConnection {
     public static JedisPool getInstance(String cacheName){
         return instance.get(cacheName);
     }
-    
+
     public static String getNamespace(String cacheName){
     	return namespace.get(cacheName);
     }

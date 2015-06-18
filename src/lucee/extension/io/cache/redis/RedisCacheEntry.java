@@ -1,10 +1,10 @@
-package railo.extension.io.cache.redis;
+package lucee.extension.io.cache.redis;
 
-import railo.commons.io.cache.CacheEntry;
-import railo.extension.util.Functions;
-import railo.loader.engine.CFMLEngineFactory;
-import railo.runtime.exp.PageException;
-import railo.runtime.type.Struct;
+import lucee.commons.io.cache.CacheEntry;
+import lucee.extension.util.Functions;
+import lucee.loader.engine.CFMLEngineFactory;
+import lucee.runtime.exp.PageException;
+import lucee.runtime.type.Struct;
 
 import java.util.Date;
 import java.util.HashMap;
@@ -13,7 +13,7 @@ public class RedisCacheEntry implements CacheEntry{
 
     RedisCacheItem item;
     Functions func = new Functions();
-    
+
     public RedisCacheEntry(RedisCacheItem redisCacheItem) {
         item = redisCacheItem;
     }

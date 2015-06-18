@@ -5,13 +5,13 @@
 
 	<cfset cacheName="sample">
 	<cfset cacheRemove(arrayToList(cacheGetAllIds()))>
-	
+
 	<cfset cachePut('abc','123')>
 	<cfset cachePut('def','123')>
     <cf_valueEquals left="#ListSort(arrayToList(cacheGetAllIds()),'textnocase')#" right="abc,def" cs=true>
-    
-<cfif server.ColdFusion.ProductName EQ "railo"> 
-	<cfset cacheClear()>   
+
+<cfif server.ColdFusion.ProductName EQ "lucee">
+	<cfset cacheClear()>
 	<cfset cachePut('abc','123')>
 	<cfset cachePut('abd','123')>
 	<cfset cachePut('def','123')>

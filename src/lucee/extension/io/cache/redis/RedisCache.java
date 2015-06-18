@@ -1,16 +1,16 @@
-package railo.extension.io.cache.redis;
+package lucee.extension.io.cache.redis;
 
-import railo.commons.io.cache.Cache;
-import railo.commons.io.cache.CacheEntry;
-import railo.commons.io.cache.CacheEntryFilter;
-import railo.commons.io.cache.CacheKeyFilter;
-import railo.extension.util.Functions;
-import railo.loader.engine.CFMLEngine;
-import railo.loader.engine.CFMLEngineFactory;
-import railo.runtime.config.Config;
-import railo.runtime.exp.PageException;
-import railo.runtime.type.Struct;
-import railo.runtime.util.Cast;
+import lucee.commons.io.cache.Cache;
+import lucee.commons.io.cache.CacheEntry;
+import lucee.commons.io.cache.CacheEntryFilter;
+import lucee.commons.io.cache.CacheKeyFilter;
+import lucee.extension.util.Functions;
+import lucee.loader.engine.CFMLEngine;
+import lucee.loader.engine.CFMLEngineFactory;
+import lucee.runtime.config.Config;
+import lucee.runtime.exp.PageException;
+import lucee.runtime.type.Struct;
+import lucee.runtime.util.Cast;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.exceptions.JedisConnectionException;
@@ -111,7 +111,7 @@ public class RedisCache implements Cache {
             if (expire != null) {
                 exp = caster.toInteger(expire / 1000);
             // If expire==null AND this is for SESSION scope storage AND idle is not null, use idle as the expire value
-            } else if (k.contains(":railo-storage:session:") && idle != null) {
+            } else if (k.contains(":lucee-storage:session:") && idle != null) {
                 exp = caster.toInteger(idle / 1000);
             }
             String value = func.serialize(val);

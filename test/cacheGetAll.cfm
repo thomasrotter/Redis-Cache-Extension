@@ -1,12 +1,12 @@
 <cflock scope="server" timeout="1">
-<cfif server.ColdFusion.ProductName EQ "railo">
+<cfif server.ColdFusion.ProductName EQ "lucee">
 
 	<cfset cacheClear()>
-	
+
 	<cfset cachePut('abc','123')>
 	<cfset cachePut('def','123')>
     <cf_valueEquals left="#ListSort(StructKeyList(cacheGetAll()),'textnocase')#" right="abc,def" cs=true>
-    
+
 	<cfset cachePut('abc','123')>
 	<cfset cachePut('abd','123')>
 	<cfset cachePut('def','123')>
