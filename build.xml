@@ -25,9 +25,10 @@
 			<fileset dir="${project.extPath}/driver" includes="*cfc"/>
 		</copy>
 
-
+		<!--
 		<echo message="restart lucee"/>
 		<get src="http://${server.name}:${server.port}${server.context}/reload.cfm" dest="output/output.html" ignoreerrors="false" />
+		-->
 	</target>
 
 	<target name="compressExtension" depends="replaceConfigVars">
