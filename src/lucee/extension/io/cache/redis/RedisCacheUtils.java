@@ -1,4 +1,4 @@
-package railo.extension.io.cache.redis;
+package lucee.extension.io.cache.redis;
 
 public class RedisCacheUtils {
 

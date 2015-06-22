@@ -1,4 +1,4 @@
-<cfif server.ColdFusion.ProductName EQ "railo">
+<cfif server.ColdFusion.ProductName EQ "lucee">
 <cflock scope="server" timeout="1">
 	<cfset cacheName="sample">
 	<cfset cacheClear()>

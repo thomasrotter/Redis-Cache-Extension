@@ -1,11 +1,11 @@
-##Railo Redis Cache Extension
+##Lucee Redis Cache Extension
 
 The redis driver is based on Jedis. While this is a very robust driver and Redis is amaxing this project has to be considered in Beta stage.
 Feel free to fork it and provide your feedbacks.
 
 ###Installation
 
-Install the extension from the railo extension store in railo admin. Please note that the extension is installable only in the *server* admin.
+Install the extension from the Lucee extension store in Lucee admin. Please note that the extension is installable only in the *server* admin.
 This means that is not possible to install it for a single web context.
 
 ###Create and configure the cache
@@ -15,7 +15,7 @@ Create a new cache selecting Redis Cache as Type.
 Add some configuration:
 
 * If you like you can use the driver to store the Session Scope. If this is your intention you can flag "Allow to use this cache as client/session storage."
-* Server/Host => says to the Railo how to connect to Redis. By default this is setted to localhost:6379.
+* Server/Host => says to the Lucee how to connect to Redis. By default this is setted to localhost:6379.
 Please tune this following your environments needs. Note that the driver actually support a single Redis Server.
 * Namesapce => choose the namespace that will be used to avoid keys name clashing between differents cache instances.
 

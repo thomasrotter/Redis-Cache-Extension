@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="RedisRailoCache" basedir="." default="updateExtension">
+<project name="RedisLuceeCache" basedir="." default="updateExtension">
 
 	<!-- project properties -->
 	<property file="project.properties"/>
 
 	<tstamp prefix="stamp">
-		 <format property="TODAY_UK" pattern="yyyyMMMMdhhmm" locale="en,UK"/>
+		<format property="TODAY_UK" pattern="yyyyMMMMdhhmm" locale="en,UK"/>
 	</tstamp>
 	<tstamp prefix="created">
 		<format property="TODAY" pattern="yyyy-MMMM-d" locale="en,UK"/>
@@ -15,26 +15,27 @@
 	<!-- Tests -->
 	<target name="updateExtension" depends="compressExtension">
 
-         <echo message="Deploying new lib"/>
-         <copy todir="${context_path}/lib" overwrite="true">
-             <fileset dir="${project.extPath}/lib" includes="*jar"/>
-         </copy>
+		<echo message="Deploying new lib"/>
+		<copy todir="${context_path}/lib" overwrite="true">
+			<fileset dir="${project.extPath}/lib" includes="*jar"/>
+		</copy>
 
-         <echo message="Deploying new driver"/>
-         <copy todir="${context_path}/context/admin/cdriver/" overwrite="true">
-             <fileset dir="${project.extPath}/driver" includes="*cfc"/>
-         </copy>
+		<echo message="Deploying new driver"/>
+		<copy todir="${context_path}/context/admin/cdriver/" overwrite="true">
+			<fileset dir="${project.extPath}/driver" includes="*cfc"/>
+		</copy>
 
-
-         <echo message="restart railo"/>
-		 <get src="http://${server.name}:${server.port}${server.context}/reload.cfm" dest="output/output.html" ignoreerrors="false" />
+		<!--
+		<echo message="restart lucee"/>
+		<get src="http://${server.name}:${server.port}${server.context}/reload.cfm" dest="output/output.html" ignoreerrors="false" />
+		-->
 	</target>
 
 	<target name="compressExtension" depends="replaceConfigVars">
 		<zip destfile="build/redis-cache.zip" basedir="${project.extPath}">
 			<exclude name="**/src/**"/>
 			<exclude name="**/bin/**"/>
-            <exclude name="config.template.xml"/>
+			<exclude name="config.template.xml"/>
 		</zip>
 	</target>
 
@@ -47,26 +48,27 @@
 
 	<target name="copyLibs" depends="createJar">
 		<copy todir="${project.extPath}/lib/">
-		    <fileset dir="lib/">
-                <exclude name="jsp-api-2.0.jar"/>
-		    </fileset>
+			<fileset dir="lib/">
+				<exclude name="jsp-api-2.0.jar"/>
+			</fileset>
 		</copy>
 	</target>
 
-    <target name="createJar" depends="deleteArchives">
-        <path id="master-classpath">
-            <fileset dir="WEB-INF/lib/">
-                <include name="*.jar"/>
-             </fileset>
-             <fileset dir="lib/">
-                <include name="*.jar"/>
-              </fileset>
-        </path>
-        <javac target="1.6" source="1.6" srcdir="src" destdir="bin">
-             <classpath refid="master-classpath"/>
-   		</javac>
-        <jar basedir="bin" destfile="extension/lib/redis-cache.jar" />
-    </target>
+	<target name="createJar" depends="deleteArchives">
+		<path id="master-classpath">
+			<fileset dir="lucee/">
+				<include name="*.jar"/>
+			</fileset>
+			<fileset dir="lib/">
+				<include name="*.jar"/>
+			 </fileset>
+		</path>
+		<mkdir dir="bin"/>
+		<javac target="1.6" source="1.6" srcdir="src" destdir="bin" includeantruntime="false">
+			<classpath refid="master-classpath"/>
+		</javac>
+		<jar basedir="bin" destfile="extension/lib/redis-cache.jar" />
+	</target>
 
 	<target name="deleteArchives">
 		<delete dir="${project.extPath}/lib/" includes="*.jar" />
@@ -74,7 +76,7 @@
 		<delete dir="output/" includes="*.html"/>
 		<delete file="${project.extPath}/config.xml" />
 		<mkdir dir="${project.extPath}/lib/" />
-        <mkdir dir="${basedir}/output"/>
+		<mkdir dir="${basedir}/output"/>
 	</target>
 
 </project>

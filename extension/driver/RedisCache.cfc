@@ -10,14 +10,14 @@
         field(
             displayName = "Namespace",
             name = "namespace",
-            defaultValue = "railo:cache",
+            defaultValue = "lucee:cache",
             required = true,
             description = "Keys namespace. Be sure that any cache use a unique namespace to avoid keys names clashing."
                )
             )>
 
     <cffunction name="getClass" returntype="string">
-        <cfreturn "railo.extension.io.cache.redis.RedisCache">
+        <cfreturn "lucee.extension.io.cache.redis.RedisCache">
     </cffunction>
 
     <cffunction name="getLabel" returntype="string" output="no">
@@ -27,7 +27,7 @@
     <cffunction name="getDescription" returntype="string" output="no">
         <cfset var c = "">
         <cfsavecontent variable="c">
-            This is the Redis Cache implementation for Railo. This allows you to cache objects, primitives and queries in a Redis server that can be used as a cache.
+            This is the Redis Cache implementation for Lucee. This allows you to cache objects, primitives and queries in a Redis server that can be used as a cache.
         </cfsavecontent>
         <cfreturn trim(c)>
     </cffunction>

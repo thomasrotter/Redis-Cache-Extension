@@ -9,20 +9,20 @@
         <cfset info.url="http://" & cgi.HTTP_HOST>
     	<cfreturn info>
     </cffunction>
-        
+
     <cffunction name="listApplications" access="remote" returntype="query">
 		<cfset var apps=queryNew('type,id,name,label,description,version,category,image,download,paypal,author,codename,video,support,documentation,forum,mailinglist,network,created')>
             <cfset populateCOM(apps)>
         <cfreturn apps>
-    </cffunction>    
-    
+    </cffunction>
+
 	<cffunction name="populateCOM" access="private" returntype="void">
     	<cfargument name="apps" type="query" required="yes">
-        <cfset var exp="this extension is experimental and will no longer work with the final release of railo 3.1, it is not allowed to use this extension in a productve enviroment.">
-        
+        <cfset var exp="this extension is experimental and will no longer work with the final release of lucee 3.1, it is not allowed to use this extension in a productve enviroment.">
+
         <cfset var rootURL=getInfo().url & "/">
         <cfset var zipFileLocation = 'ext/redis-cache.zip'>
-		
+
 		<cffile action="read" file="zip://#expandPath(zipFileLocation)#!/config.xml" variable="config">
 		<cfset info = XMLParse(config)>
 
