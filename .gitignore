@@ -3,7 +3,7 @@ build/*.zip
 extension/output/*.*
 extension/lib/
 extension/config.xml
-WEB-INF/
+lucee/
 unames.xml
 output/
 bin/
