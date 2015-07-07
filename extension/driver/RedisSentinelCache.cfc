@@ -13,15 +13,15 @@
 			required = true,
 			description = "Sentinels",
 			type = "textarea"
-			),
+		),
 		field(
 			displayName = "Namespace",
 			name = "namespace",
 			defaultValue = "lucee:cache",
 			required = true,
 			description = "Keys namespace. Be sure that any cache use a unique namespace to avoid keys names clashing."
-			   )
-			)>
+		)
+	)>
 
 	<cffunction name="getClass" returntype="string">
 		<cfreturn "lucee.extension.io.cache.redis.RedisSentinelCache">
