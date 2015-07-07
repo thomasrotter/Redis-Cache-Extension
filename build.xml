@@ -56,7 +56,7 @@
 
 	<target name="createJar" depends="deleteArchives">
 		<path id="master-classpath">
-			<fileset dir="WEB-INF/lib/">
+			<fileset dir="lucee/">
 				<include name="*.jar"/>
 			</fileset>
 			<fileset dir="lib/">
