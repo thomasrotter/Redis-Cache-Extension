@@ -9,7 +9,7 @@
 			),
 		field(displayName = "Sentinels",
 			name = "sentinels",
-			defaultValue = "localhost:6379",
+			defaultValue = "localhost:26379",
 			required = true,
 			description = "Sentinels",
 			type = "textarea"

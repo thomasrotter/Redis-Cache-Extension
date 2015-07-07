@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 <config>
 	<info>
-		<id>10EEC23A-0779-4068-9507A9C5ED4A8666</id>
+		<id>2BB1A8F0-24A6-11E5-B345-FEFF819CDC9F</id>
 		<version>{version}</version>
 		<name>RedisSentinelCache</name>
 		<type>server</type>
