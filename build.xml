@@ -32,7 +32,7 @@
 	</target>
 
 	<target name="compressExtension" depends="replaceConfigVars">
-		<zip destfile="build/redis-cache.zip" basedir="${project.extPath}">
+		<zip destfile="build/redis-sentinel-cache.zip" basedir="${project.extPath}">
 			<exclude name="**/src/**"/>
 			<exclude name="**/bin/**"/>
 			<exclude name="config.template.xml"/>
@@ -56,7 +56,7 @@
 
 	<target name="createJar" depends="deleteArchives">
 		<path id="master-classpath">
-			<fileset dir="WEB-INF/lib/">
+			<fileset dir="lucee/">
 				<include name="*.jar"/>
 			</fileset>
 			<fileset dir="lib/">
@@ -67,7 +67,7 @@
 		<javac target="1.6" source="1.6" srcdir="src" destdir="bin" includeantruntime="false">
 			<classpath refid="master-classpath"/>
 		</javac>
-		<jar basedir="bin" destfile="extension/lib/redis-cache.jar" />
+		<jar basedir="bin" destfile="extension/lib/redis-sentinel-cache.jar" />
 	</target>
 
 	<target name="deleteArchives">

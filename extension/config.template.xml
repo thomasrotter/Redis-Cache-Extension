@@ -3,16 +3,16 @@
 	<info>
 		<id>10EEC23A-0779-4068-9507A9C5ED4A8666</id>
 		<version>{version}</version>
-		<name>RedisCache</name>
+		<name>RedisSentinelCache</name>
 		<type>server</type>
-		<label>RedisCache</label>
-		<description>Redis Cache Extension</description>
+		<label>RedisSentinelCache</label>
+		<description>Redis Sentinel Cache Extension</description>
 		<created>{created}</created>
 		<category>Core Extension</category>
-		<author>Andrea Campolonghi</author>
+		<author>Thomas Rotter</author>
 		<mailinglist></mailinglist>
 		<support></support>
-		<documentation>https://github.com/andreacfm/Redis-Cache-Extension</documentation>
+		<documentation>http://git.idg.ipx/idg-business-developer/redis-cache-extension</documentation>
 	</info>
 </config>
 
